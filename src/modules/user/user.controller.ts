@@ -1,9 +1,9 @@
-import { RequestHandler } from "express"; // <-- নতুন ইম্পোর্ট
+import { RequestHandler } from "express"; 
 import * as userService from "./user.service";
 import { sendResponse } from "../../utils/sendResponse";
 import { IUserCreate, IUserLogin } from "./user.iterface";
 
-// আগের রেজিস্টার ফাংশনকে RequestHandler টাইপ দিচ্ছি
+
 export const register: RequestHandler = async (req, res, next) => {
   try {
     const data: IUserCreate = req.body;
@@ -26,7 +26,7 @@ export const login: RequestHandler = async (req, res, next) => {
 
 export const getDashboard: RequestHandler = async (req, res, next) => {
   try {
-    // auth middleware req.user সেট করছে
+    // auth middleware req.user 
     const userId = (req as any).user.id;
     const user = await userService.getProfile(userId);
     sendResponse(res, 200, true, "User dashboard data", { user });

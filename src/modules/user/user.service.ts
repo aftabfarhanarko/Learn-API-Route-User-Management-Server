@@ -36,7 +36,7 @@ export const registerUser = async (data: IUserCreate) => {
   } catch (error: any) {
     console.error("Register Error:", error.message);
 
-    // Preserve known errors, wrap unknown ones
+    
     if (error.message === "User already exists") {
       throw error;
     }

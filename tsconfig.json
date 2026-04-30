@@ -8,7 +8,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": ["ES2020"]   // <-- এই লাইনটা যোগ কর
+    "lib": ["ES2020"]   
   },
   "include": ["src"],
   "exclude": ["node_modules"]
