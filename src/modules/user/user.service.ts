@@ -1,7 +1,7 @@
 import { comparePassword, hashPassword } from "../../utlis/bcrypt";
 import { generateToken } from "../../utlis/jwt";
 import prisma from "../../utlis/prisma";
-import { IUserCreate, IUserLogin, IUserResponse } from "./user.controller";
+import { IUserCreate, IUserLogin, IUserResponse } from "./user.iterface";
 
 // Register User
 export const registerUser = async (data: IUserCreate) => {
