@@ -7,13 +7,14 @@ const globalForPrisma = global as unknown as { prisma: PrismaClient };
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
+// hdiufhsiud
 
 const adapter = new PrismaPg(pool);
 
 const prisma =
   globalForPrisma.prisma ||
   new PrismaClient({
-    adapter, // ← ডাইরেক্ট কানেকশনের জন্য adapter পাস করো
+    adapter, 
   });
 
 if (process.env.NODE_ENV !== "production") {
