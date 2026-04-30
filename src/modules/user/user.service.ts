@@ -1,6 +1,6 @@
-import { comparePassword, hashPassword } from "../../utlis/bcrypt";
-import { generateToken } from "../../utlis/jwt";
-import prisma from "../../utlis/prisma";
+import { comparePassword, hashPassword } from "../../utils/bcrypt";
+import { generateToken } from "../../utils/jwt";
+import prisma from "../../utils/prisma";
 import { IUserCreate, IUserLogin, IUserResponse } from "./user.iterface";
 
 // Register User

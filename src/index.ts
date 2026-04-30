@@ -1,18 +1,6 @@
-import express, { Request, Response } from "express";
-import { getMessage } from "./service";
-
-const app = express();
-const PORT = 4000;
-
-// Middleware
-app.use(express.json());
-
-// Basic Route
-app.get("/", (req: Request, res: Response) => {
-  const message = getMessage();
-  res.send(message);
-});
+import app from "./service";
+import { PORT } from "./config/env";
 
 app.listen(PORT, () => {
-  console.log("Server is Running on Port: 4000 🚀");
+  console.log(`Server running on http://localhost:${PORT}`);
 });

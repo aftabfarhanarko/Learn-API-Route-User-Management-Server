@@ -1,6 +1,5 @@
 datasource db {
   provider = "postgresql"
-
 }
 
 generator client {
@@ -8,10 +7,10 @@ generator client {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  name      String
+  id        String   @id @default(uuid())
   email     String   @unique
   password  String
+  name      String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

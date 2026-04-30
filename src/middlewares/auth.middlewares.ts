@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import { sendResponse } from "../utlis/sendResponse";
-import { verifyToken } from "../utlis/jwt";
+import { sendResponse } from "../utils/sendResponse";
+import { verifyToken } from "../utils/jwt";
 
 export const authenticate = (
   req: Request,

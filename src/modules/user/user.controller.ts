@@ -1,14 +1,10 @@
-import { NextFunction } from "express";
-import { IUserCreate, IUserLogin } from "./user.iterface";
+import { RequestHandler } from "express"; // <-- নতুন ইম্পোর্ট
 import * as userService from "./user.service";
-import { sendResponse } from "../../utlis/sendResponse";
+import { sendResponse } from "../../utils/sendResponse";
+import { IUserCreate, IUserLogin } from "./user.iterface";
 
-// User Register Controler
-export const register = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+// আগের রেজিস্টার ফাংশনকে RequestHandler টাইপ দিচ্ছি
+export const register: RequestHandler = async (req, res, next) => {
   try {
     const data: IUserCreate = req.body;
     const result = await userService.registerUser(data);
@@ -18,13 +14,7 @@ export const register = async (
   }
 };
 
-// User Login Controler
-
-export const loginUser = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const login: RequestHandler = async (req, res, next) => {
   try {
     const data: IUserLogin = req.body;
     const result = await userService.loginUser(data);
@@ -34,15 +24,9 @@ export const loginUser = async (
   }
 };
 
-//  Get Dashbord
-
-export const getDashbord = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const getDashboard: RequestHandler = async (req, res, next) => {
   try {
-    // req.user set by auth middleware
+    // auth middleware req.user সেট করছে
     const userId = (req as any).user.id;
     const user = await userService.getProfile(userId);
     sendResponse(res, 200, true, "User dashboard data", { user });
