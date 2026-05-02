@@ -11,7 +11,7 @@ export const authenticate = (
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     return sendResponse(res, 401, false, "No token provided");
   }
-
+// Session
   const token = authHeader.split(" ")[1];
   try {
     const decoad = verifyToken(token) as { id: string };
